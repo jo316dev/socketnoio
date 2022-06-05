@@ -15,7 +15,6 @@ services:
             - ./:/var/www
         depends_on:
             - redis
-            - queue
         networks:
             - socketnoio
 
@@ -48,21 +47,21 @@ services:
             - socketnoio
 
     #queue
-    queue:
-        build:
-            args:
-                user: jo316dev
-                uid: 1000
-            context: ./
-            dockerfile: Dockerfile
-        restart: unless-stopped
-        command: "php artisan queue:work"
-        volumes:
-            - ./:/var/www
-        depends_on:
-            - redis
-        networks:
-            - socketnoio
+    # queue:
+    #     build:
+    #         args:
+    #             user: jo316dev
+    #             uid: 1000
+    #         context: ./
+    #         dockerfile: Dockerfile
+    #     restart: unless-stopped
+    #     command: "php artisan queue:work"
+    #     volumes:
+    #         - ./:/var/www
+    #     depends_on:
+    #         - redis
+    #     networks:
+    #         - socketnoio
 
     # redis
     redis:
