@@ -13,7 +13,7 @@ class PostObserver
      * @param  \App\Models\Post  $post
      * @return void
      */
-    public function creating(Post $post)
+    public function created(Post $post)
     {
         event(new PostCreated($post));
     }
@@ -24,7 +24,7 @@ class PostObserver
      * @param  \App\Models\Post  $post
      * @return void
      */
-    public function updating(Post $post)
+    public function updated(Post $post)
     {
         //
     }
